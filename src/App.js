@@ -1,14 +1,11 @@
 import Transaction from "./components/Transaction";
-
-
-const Title =  () => <h1>แอพบัญชี - รายจ่าย</h1>
-const Description = () => <p>บันทึกข้อมูลรายละเอียดในแต่ละวัน</p>
+import './App.css'
 
 function App() {
+  const design = {color:'red',textAlign: 'center',fontSize:'1.5rem'}
   return (
-    <div>
-      <Title/>
-      <Description/>
+    <div className="container">
+      <h1 style={design}>แอพบัญชีรายรับ - รายจ่าย</h1>
       <Transaction/>
     </div>
   );
