@@ -1,3 +1,10 @@
-const Item = () => <li>ค่าเดินทาง <span>-200</span></li>
+const Item = () => {
+    const name = 'พักโรงแรม'
+    const amount = 5000
+    return (
+        <li>{name} <span>-{amount}</span></li>
+    )
+}
+
 
 export default Item
