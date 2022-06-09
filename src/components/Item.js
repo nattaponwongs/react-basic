@@ -1,11 +1,7 @@
-
-const Item = () => {
-    const name = 'พักโรงแรม'
-    const amount = 5000
+const Item = (prop) => {
     return (
-        <li className='item'>{name} <span>-{amount}</span></li>
+        <li>{prop.title} <span>{prop.amount}</span></li>
     )
 }
-
 
 export default Item
