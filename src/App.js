@@ -10,7 +10,7 @@ function App() {
     {id: 2, title: 'ค่าเดินทาง', amount: 500},
     {id: 3, title: 'ค่าเช่าห้อง', amount: 8000},
   ]
-  const [items, setItems] = useState(initData)
+  const [items, setItems] = useState([])
   const onAddNewItem = (newItem) => {
     setItems((prevItem)=>{
       return [newItem, ...prevItem]
