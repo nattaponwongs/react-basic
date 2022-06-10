@@ -8,8 +8,8 @@ const Item = (prop) => {
 }
 
 Item.prototype = {
-    title: PropTypes.string,
-    amount: PropTypes.number
+    title: PropTypes.string.isRequired,
+    amount: PropTypes.number.isRequired
 }
 
 export default Item
