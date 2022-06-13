@@ -19,3 +19,28 @@ body {
   margin: 30px auto;
   width: 350px;
 }
+
+.horizontal-menu {
+  border-radius: 10px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: #15274B;
+  text-align: center;
+}
+
+.horizontal-menu li {
+  display: inline-block;
+}
+
+.horizontal-menu li:nth-child(-n+1) {
+  border-right: 2px solid #dedede;
+}
+
+.horizontal-menu a {
+  color: #fff;
+  text-decoration: none;
+  padding: 16px;
+  display: block;
+}

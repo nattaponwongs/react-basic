@@ -1,9 +1,10 @@
 import Transaction from "./components/Transaction";
 import FormComponent from "./components/FormComponent"
 import './App.css'
-import { useEffect, useReducer, useState } from "react";
+import { useEffect, useState } from "react";
 import DataContext from "./data/DataContext";
 import ReportComponent from "./components/ReportComponent";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 function App() {
   const design = {color:'red',textAlign: 'center',fontSize:'1.5rem'}
@@ -25,17 +26,6 @@ function App() {
     setReportExpense(expense);
   },[items,reportIncome,reportExpense])
 
-  const [showReport, setShowReport] = useState(false)
-  const reduce = (state, action) => {
-    switch(action.type){
-      case "SHOW" :
-        return setShowReport(true)
-      case "HIDE" : 
-        return setShowReport(false)
-    }
-  }
-  const [result, dispatch] = useReducer(reduce, showReport)
-
   return (
     <DataContext.Provider value={
       {
@@ -45,12 +35,23 @@ function App() {
     }>
       <div className="container">
         <h1 style={design}>แอพบัญชีรายรับ - รายจ่าย</h1>
-        {showReport && <ReportComponent/>}
-        <FormComponent onAddItem={onAddNewItem}/>
-        <Transaction items = {items}/>
-        <h1>{result}</h1>
-        <button onClick={()=> dispatch({type:"SHOW"})}>แสดง</button>
-        <button onClick={()=> dispatch({type:"HIDE"})}>ซ่อน</button>
+        <Router>
+          <div>
+            <ul className="horizontal-menu">
+              <li><Link to="/">ข้อมูลบัญชี</Link></li>
+              <li><Link to="/insert">บันทึกข้อมูล</Link></li>
+            </ul>
+            <Routes path="/" exact>
+              <Route path="/" element={ <ReportComponent/> }></Route> 
+              <Route path='/insert' element={
+              <>
+                <FormComponent  onAddItem={onAddNewItem}/> 
+                <Transaction items={items}/> 
+              </>}>
+              </Route>
+            </Routes>
+          </div>
+        </Router>
       </div>
     </DataContext.Provider>
   );

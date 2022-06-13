@@ -1,12 +1,8 @@
 import PropTypes from 'prop-types'
 import './Item.css'
-import DataContext from '../data/DataContext'
-import { useContext } from 'react'
-
 
 const Item = (prop) => {
     const {title, amount} = prop
-    const name = useContext(DataContext)
     const status = amount < 0 ? "expense" : "income"
     const symbol = amount < 0 ? "-": "+"
     return (
