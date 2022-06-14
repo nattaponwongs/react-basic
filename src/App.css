@@ -34,10 +34,6 @@ body {
   display: inline-block;
 }
 
-.horizontal-menu li:nth-child(-n+1) {
-  border-right: 2px solid #dedede;
-}
-
 .horizontal-menu a {
   color: #fff;
   text-decoration: none;
